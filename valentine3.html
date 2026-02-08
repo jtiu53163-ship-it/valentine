@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine ❤️</title>
+</head>
+
+<body bgcolor="#ffe6ec">
+  <center>
+    <br><br><br>
+
+    <h1 id="question">Will you be my Valentine? 💕</h1>
+
+    <br><br>
+
+    <button id="yesBtn" onclick="yesClicked()" style="font-size:24px; padding:12px 24px;">
+      YES 💖
+    </button>
+
+    &nbsp;&nbsp;&nbsp;
+
+    <button id="noBtn" onclick="noClicked()" style="font-size:24px; padding:12px 24px;">
+      NO 💔
+    </button>
+  </center>
+
+  <script>
+    let yesSize = 24;
+    let noSize = 24;
+
+    function noClicked() {
+      yesSize += 14;
+      noSize -= 7;
+
+      document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+      document.getElementById("noBtn").style.fontSize = noSize + "px";
+
+      if (noSize <= 8) {
+        document.getElementById("noBtn").style.display = "none";
+      }
+    }
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <center>
+          <br><br>
+          <h1>❤️ Happy Valentine ❤️</h1>
+          <h2>Angel Nicole Parami 💕</h2>
+          <h3>20 years old</h3>
+          <p style="font-size:20px;">
+            I love you so much 🥹💖<br>
+            Thank you for being my Valentine 💌
+          </p>
+        </center>
+      `;
+
+      for (let i = 0; i < 30; i++) {
+        createHeart();
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.innerHTML = "❤️";
+      heart.style.position = "fixed";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = "100vh";
+      heart.style.fontSize = (20 + Math.random() * 30) + "px";
+      heart.style.animation = "floatUp 3s linear";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 3000);
+    }
+  </script>
+
+  <style>
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+  </style>
+
+</body>
+</html>
